@@ -26,8 +26,8 @@ extension ItemListDataSource: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel!.text = self.viewModel.itemContentForIndexpath(indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ItemListCell
+        cell.contentLabel!.text = self.viewModel.itemContentForIndexpath(indexPath)
         return cell
     }
     
