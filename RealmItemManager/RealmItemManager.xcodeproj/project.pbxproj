@@ -16,6 +16,8 @@
 		64801BEF1D5A54EF00CC1587 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64801BEE1D5A54EF00CC1587 /* Realm.framework */; };
 		64801BF01D5A54EF00CC1587 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64801BEE1D5A54EF00CC1587 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64801BF41D5A55B900CC1587 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64801BF31D5A55B900CC1587 /* RLMSupport.swift */; };
+		64E9D9651D5B80260099A09D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9641D5B80260099A09D /* Item.m */; };
+		64E9D9681D5B803B0099A09D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9671D5B803B0099A09D /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +48,10 @@
 		64801BEE1D5A54EF00CC1587 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		64801BF21D5A55B800CC1587 /* RealmItemManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealmItemManager-Bridging-Header.h"; sourceTree = "<group>"; };
 		64801BF31D5A55B900CC1587 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		64E9D9631D5B80260099A09D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		64E9D9641D5B80260099A09D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		64E9D9661D5B803B0099A09D /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		64E9D9671D5B803B0099A09D /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 		64801BD61D5A495A00CC1587 /* RealmItemManager */ = {
 			isa = PBXGroup;
 			children = (
+				64E9D9691D5B80A00099A09D /* Storage */,
 				64801BDA1D5A495A00CC1587 /* AppDelegate.h */,
 				64801BDB1D5A495A00CC1587 /* AppDelegate.m */,
 				64801BDD1D5A495A00CC1587 /* ViewController.h */,
@@ -101,6 +108,17 @@
 				64801BD81D5A495A00CC1587 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64E9D9691D5B80A00099A09D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				64E9D9631D5B80260099A09D /* Item.h */,
+				64E9D9641D5B80260099A09D /* Item.m */,
+				64E9D9661D5B803B0099A09D /* Note.h */,
+				64E9D9671D5B803B0099A09D /* Note.m */,
+			);
+			name = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E9D9651D5B80260099A09D /* Item.m in Sources */,
 				64801BDF1D5A495A00CC1587 /* ViewController.m in Sources */,
 				64801BDC1D5A495A00CC1587 /* AppDelegate.m in Sources */,
+				64E9D9681D5B803B0099A09D /* Note.m in Sources */,
 				64801BD91D5A495A00CC1587 /* main.m in Sources */,
 				64801BF41D5A55B900CC1587 /* RLMSupport.swift in Sources */,
 			);
@@ -357,6 +377,7 @@
 				64801BED1D5A495A00CC1587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
