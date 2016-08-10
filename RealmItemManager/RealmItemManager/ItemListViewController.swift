@@ -19,7 +19,7 @@ class ItemListViewController: UIViewController {
         
         self.mainViewModel = ItemListViewModel()
         self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
-
+        self.mainTableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     override func viewWillAppear(animated: Bool) {
