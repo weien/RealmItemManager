@@ -28,7 +28,7 @@ class ItemListViewModel: NSObject {
             return item.content
         }
         else {
-            return ""
+            return NSLocalizedString("No content available.", comment: "noContent")
         }
     }
 }
