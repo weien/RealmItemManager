@@ -9,11 +9,23 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
+    @IBOutlet var mainTableView: UITableView!
+    var mainDataSource: ItemListDataSource?
+    var mainDelegate: ItemListDelegate?
+    var mainViewModel: ItemListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mainViewModel = ItemListViewModel()
+        self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //self.mainTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
