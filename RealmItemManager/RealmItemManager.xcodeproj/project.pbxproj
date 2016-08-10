@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		64801BD91D5A495A00CC1587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64801BD81D5A495A00CC1587 /* main.m */; };
 		64801BDC1D5A495A00CC1587 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64801BDB1D5A495A00CC1587 /* AppDelegate.m */; };
-		64801BDF1D5A495A00CC1587 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64801BDE1D5A495A00CC1587 /* ViewController.m */; };
 		64801BE21D5A495A00CC1587 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64801BE01D5A495A00CC1587 /* Main.storyboard */; };
 		64801BE41D5A495A00CC1587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64801BE31D5A495A00CC1587 /* Assets.xcassets */; };
 		64801BE71D5A495A00CC1587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64801BE51D5A495A00CC1587 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		64E9D9651D5B80260099A09D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9641D5B80260099A09D /* Item.m */; };
 		64E9D9681D5B803B0099A09D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9671D5B803B0099A09D /* Note.m */; };
 		64E9D96C1D5B89A20099A09D /* StorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D96B1D5B89A20099A09D /* StorageController.m */; };
+		64E9D96E1D5B97050099A09D /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D96D1D5B97050099A09D /* ItemListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,8 +40,6 @@
 		64801BD81D5A495A00CC1587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64801BDA1D5A495A00CC1587 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		64801BDB1D5A495A00CC1587 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64801BDD1D5A495A00CC1587 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		64801BDE1D5A495A00CC1587 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		64801BE11D5A495A00CC1587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64801BE31D5A495A00CC1587 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64801BE61D5A495A00CC1587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +53,7 @@
 		64E9D9671D5B803B0099A09D /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		64E9D96A1D5B89A20099A09D /* StorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageController.h; sourceTree = "<group>"; };
 		64E9D96B1D5B89A20099A09D /* StorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageController.m; sourceTree = "<group>"; };
+		64E9D96D1D5B97050099A09D /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +93,7 @@
 				64E9D9691D5B80A00099A09D /* Storage */,
 				64801BDA1D5A495A00CC1587 /* AppDelegate.h */,
 				64801BDB1D5A495A00CC1587 /* AppDelegate.m */,
-				64801BDD1D5A495A00CC1587 /* ViewController.h */,
-				64801BDE1D5A495A00CC1587 /* ViewController.m */,
+				64E9D96D1D5B97050099A09D /* ItemListViewController.swift */,
 				64801BE01D5A495A00CC1587 /* Main.storyboard */,
 				64801BE31D5A495A00CC1587 /* Assets.xcassets */,
 				64801BE51D5A495A00CC1587 /* LaunchScreen.storyboard */,
@@ -216,8 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				64E9D96C1D5B89A20099A09D /* StorageController.m in Sources */,
+				64E9D96E1D5B97050099A09D /* ItemListViewController.swift in Sources */,
 				64E9D9651D5B80260099A09D /* Item.m in Sources */,
-				64801BDF1D5A495A00CC1587 /* ViewController.m in Sources */,
 				64801BDC1D5A495A00CC1587 /* AppDelegate.m in Sources */,
 				64E9D9681D5B803B0099A09D /* Note.m in Sources */,
 				64801BD91D5A495A00CC1587 /* main.m in Sources */,
