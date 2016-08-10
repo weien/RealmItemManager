@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
+#import "Item.h"
 
 @interface StorageController : NSObject
-
+- (void) addObjectToRealm:(RLMObject*)object;
+- (void) deleteObjectFromRealm:(RLMObject*)object;
+- (RLMResults*) retrieveAllItems;
+- (RLMResults*) retrieveAllNotesForItem:(Item*)item;
 @end
