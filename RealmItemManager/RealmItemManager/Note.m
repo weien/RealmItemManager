@@ -11,7 +11,7 @@
 @implementation Note
 
 + (NSArray *)requiredProperties {
-    return @[@"content", @"item"];
+    return @[@"content"];
 }
 
 @end
