@@ -34,10 +34,16 @@ class ItemListCell: UITableViewCell {
         self.notesDataSource = NotesDataSource(tableView: self.miniTable, viewModel: self.notesViewModel!)
         self.noteFieldDelegate = NoteFieldDelegate(tableView: self.miniTable, viewModel: self.notesViewModel!)
         self.parentTable = parentTable
+        
+        let numberOfNotes = self.notesViewModel?.numberOfNotesInSection(0)
+        if (numberOfNotes > 0) {
+            //self.adjustLayoutForNumberOfNotes(numberOfNotes!) //this wreaks havoc
+            self.miniTable.reloadData()
+        }
     }
     
     func adjustLayoutForNumberOfNotes(numberOfNotes:Int) {
-        self.miniTableHeightConstraint.constant = CGFloat(min(numberOfNotes*22, 88))
+        self.miniTableHeightConstraint.constant = CGFloat(min(numberOfNotes*22, 99))
         self.parentTable!.beginUpdates()
         self.parentTable!.endUpdates()
     }
