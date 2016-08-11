@@ -15,6 +15,10 @@ class ItemListCell: UITableViewCell {
     @IBOutlet var contentTextField: UITextField!
     @IBOutlet var miniTable: UITableView!
     @IBOutlet var miniTableHeightConstraint: NSLayoutConstraint!
+    
+    //var notesData: [Note]?
+    var notesDataSource: NotesDataSource?
+    var notesViewModel: NotesViewModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +27,12 @@ class ItemListCell: UITableViewCell {
         self.miniTableHeightConstraint.constant = 0
         self.miniTable.tableFooterView = UIView(frame: CGRectZero)
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setupNotes(notes:[Note]) {
+        if self.notesViewModel == nil {
+            self.notesViewModel = NotesViewModel(notes: notes)
+            self.notesDataSource = NotesDataSource(viewModel: self.notesViewModel!)
+        }
+        //self.notesData = notes
     }
-
 }
