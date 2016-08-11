@@ -49,6 +49,9 @@
                                                     <state key="normal" title="-">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteItemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LH4-gP-KrA"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-7D-2HR">
                                                     <rect key="frame" x="540" y="11" width="22" height="22"/>

@@ -21,12 +21,6 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
         self.mainTableView.tableFooterView = UIView(frame: CGRectZero)
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //self.mainTableView.reloadData()
-    }
 
     @IBAction func addItemButtonTapped(sender: AnyObject) {
         self.mainViewModel?.addPlaceholderItem()
@@ -44,14 +38,38 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         let cell = self.mainTableView.cellForRowAtIndexPath(indexPath) as! ItemListCell
-        cell.contentLabel.text = cell.contentTextField.text
-        cell.contentLabel.hidden = false
-        cell.contentTextField.hidden = true
-        self.mainViewModel?.addNewItemWithContent(cell.contentLabel.text!)
+        
+        if cell.contentTextField.text != "" {
+            cell.contentLabel.text = cell.contentTextField.text
+            cell.contentLabel.hidden = false
+            cell.contentTextField.hidden = true
+            self.mainViewModel?.addNewItemWithContent(cell.contentLabel.text!)
+            self.mainViewModel?.refreshItems()
+        }
+        else {
+            self.mainViewModel?.refreshItems()
+            self.mainTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func deleteItemButtonTapped(sender: AnyObject) {
+        let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
+        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
+        if cell.contentTextField.isFirstResponder() {
+            cell.contentTextField.text = ""
+            cell.contentTextField.resignFirstResponder()
+        }
+        else if indexPath != nil {
+            let itemToDelete = self.mainViewModel!.items[indexPath!.row] as! Item
+            self.mainViewModel?.deleteItem(itemToDelete)
+            self.mainViewModel?.refreshItems()
+            self.mainTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Right)
+        }
     }
 }

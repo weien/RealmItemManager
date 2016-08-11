@@ -55,4 +55,8 @@ class ItemListViewModel: NSObject {
         item.content = ""
         self.items.insert(item, atIndex: 0)
     }
+    
+    func deleteItem(item: Item) {
+        self.storageController.deleteObjectFromRealm(item)
+    }
 }
