@@ -64,5 +64,7 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         cell.miniTableHeightConstraint.constant = 22
         self.mainTableView.beginUpdates()
         self.mainTableView.endUpdates()
+        
+        cell.addNote()
     }
 }

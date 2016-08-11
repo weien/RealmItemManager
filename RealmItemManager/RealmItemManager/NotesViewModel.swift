@@ -12,9 +12,13 @@ class NotesViewModel: NSObject {
     var notes: [Note]
     var storageController: StorageController
     
-    init(notes:[Note]) {
+    init(item:Item) {
         self.storageController = StorageController()
-        self.notes = notes
+        let results = self.storageController.retrieveAllNotesForItem(item)
+        self.notes = [Note]()
+        for object in results {
+            self.notes.append(object as! Note)
+        }
         super.init()
     }
     
@@ -27,8 +31,8 @@ class NotesViewModel: NSObject {
     }
     
     func addPlaceholderNote() {
-//        let item = Item()
-//        item.content = ""
-//        self.notes.insert(item, atIndex: 0)
+        let note = Note()
+        note.content = ""
+        self.notes.insert(note, atIndex: 0)
     }
 }

@@ -11,9 +11,10 @@ import UIKit
 class NotesDataSource: NSObject {
     let viewModel: NotesViewModel
     
-    init(viewModel: NotesViewModel) {
+    init(tableView: UITableView, viewModel: NotesViewModel) {
         self.viewModel = viewModel
         super.init()
+        tableView.dataSource = self
     }
 }
 

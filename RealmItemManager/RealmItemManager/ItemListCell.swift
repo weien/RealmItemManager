@@ -27,13 +27,31 @@ class ItemListCell: UITableViewCell {
         self.contentTextField.hidden = true
         self.miniTableHeightConstraint.constant = 0
         self.miniTable.tableFooterView = UIView(frame: CGRectZero)
+        
+//        if parentItem != nil {
+//            
+//        }
     }
     
-    func setupNotes(notes:[Note]) {
+//    func setupNotes(notes:[Note]) {
+//        self.notesData = notes
+//    }
+    
+    func addNote() {
         if self.notesViewModel == nil {
-            self.notesViewModel = NotesViewModel(notes: notes)
-            self.notesDataSource = NotesDataSource(viewModel: self.notesViewModel!)
+            self.notesViewModel = NotesViewModel(item: parentItem!)
+            self.notesDataSource = NotesDataSource(tableView: self.miniTable, viewModel: self.notesViewModel!)
         }
-        //self.notesData = notes
+        
+        self.notesViewModel?.addPlaceholderNote()
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.miniTable.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+        let cell = self.miniTable.cellForRowAtIndexPath(indexPath) as! NoteListCell
+        cell.contentLabel.hidden = true
+        cell.contentTextField.hidden = false
+        cell.contentTextField.becomeFirstResponder()
+//        cell.contentTextField.delegate = self.mainFieldDelegate
+        cell.contentTextField.text = ""
     }
 }
