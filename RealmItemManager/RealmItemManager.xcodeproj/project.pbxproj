@@ -27,6 +27,7 @@
 		64E9D97E1D5C213B0099A09D /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D97D1D5C213B0099A09D /* NotesViewModel.swift */; };
 		64E9D9801D5C21490099A09D /* NotesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D97F1D5C21490099A09D /* NotesDataSource.swift */; };
 		64E9D9841D5C2BA50099A09D /* NoteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9831D5C2BA50099A09D /* NoteListCell.swift */; };
+		64E9D9861D5C377D0099A09D /* NoteFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9D9851D5C377D0099A09D /* NoteFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +71,7 @@
 		64E9D97D1D5C213B0099A09D /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		64E9D97F1D5C21490099A09D /* NotesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesDataSource.swift; sourceTree = "<group>"; };
 		64E9D9831D5C2BA50099A09D /* NoteListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteListCell.swift; sourceTree = "<group>"; };
+		64E9D9851D5C377D0099A09D /* NoteFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				64E9D9791D5BE48E0099A09D /* ItemListCell.swift */,
 				64E9D97D1D5C213B0099A09D /* NotesViewModel.swift */,
 				64E9D97F1D5C21490099A09D /* NotesDataSource.swift */,
+				64E9D9851D5C377D0099A09D /* NoteFieldDelegate.swift */,
 				64E9D9831D5C2BA50099A09D /* NoteListCell.swift */,
 				64801BE01D5A495A00CC1587 /* Main.storyboard */,
 				64801BE31D5A495A00CC1587 /* Assets.xcassets */,
@@ -244,6 +247,7 @@
 				64E9D97E1D5C213B0099A09D /* NotesViewModel.swift in Sources */,
 				64E9D9761D5BC93B0099A09D /* ItemListDataSource.swift in Sources */,
 				64E9D9651D5B80260099A09D /* Item.m in Sources */,
+				64E9D9861D5C377D0099A09D /* NoteFieldDelegate.swift in Sources */,
 				64E9D9801D5C21490099A09D /* NotesDataSource.swift in Sources */,
 				64801BDC1D5A495A00CC1587 /* AppDelegate.m in Sources */,
 				64E9D9681D5B803B0099A09D /* Note.m in Sources */,

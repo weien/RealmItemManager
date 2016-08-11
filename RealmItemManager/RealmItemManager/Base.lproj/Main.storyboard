@@ -101,7 +101,7 @@
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text Field" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRT-Jz-ljT">
                                                                         <rect key="frame" x="8" y="0.0" width="520" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <constraints>

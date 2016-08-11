@@ -16,10 +16,10 @@ class ItemListCell: UITableViewCell {
     @IBOutlet var miniTable: UITableView!
     @IBOutlet var miniTableHeightConstraint: NSLayoutConstraint!
     
-//    var notesData: [Note]?
-    var parentItem: Item?
+    //var parentItem: Item?
     var notesDataSource: NotesDataSource?
     var notesViewModel: NotesViewModel?
+    var noteFieldDelegate: NoteFieldDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,22 +27,15 @@ class ItemListCell: UITableViewCell {
         self.contentTextField.hidden = true
         self.miniTableHeightConstraint.constant = 0
         self.miniTable.tableFooterView = UIView(frame: CGRectZero)
-        
-//        if parentItem != nil {
-//            
-//        }
     }
     
-//    func setupNotes(notes:[Note]) {
-//        self.notesData = notes
-//    }
+    func setupCellWithItem(parentItem:Item) {
+        self.notesViewModel = NotesViewModel(item: parentItem)
+        self.notesDataSource = NotesDataSource(tableView: self.miniTable, viewModel: self.notesViewModel!)
+        self.noteFieldDelegate = NoteFieldDelegate(tableView: self.miniTable, viewModel: self.notesViewModel!)
+    }
     
     func addNote() {
-        if self.notesViewModel == nil {
-            self.notesViewModel = NotesViewModel(item: parentItem!)
-            self.notesDataSource = NotesDataSource(tableView: self.miniTable, viewModel: self.notesViewModel!)
-        }
-        
         self.notesViewModel?.addPlaceholderNote()
         
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -50,8 +43,8 @@ class ItemListCell: UITableViewCell {
         let cell = self.miniTable.cellForRowAtIndexPath(indexPath) as! NoteListCell
         cell.contentLabel.hidden = true
         cell.contentTextField.hidden = false
-        cell.contentTextField.becomeFirstResponder()
-//        cell.contentTextField.delegate = self.mainFieldDelegate
+        cell.contentTextField.delegate = self.noteFieldDelegate
         cell.contentTextField.text = ""
+        cell.contentTextField.becomeFirstResponder()
     }
 }
