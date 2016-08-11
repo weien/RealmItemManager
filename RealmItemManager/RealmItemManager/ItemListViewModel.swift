@@ -44,15 +44,24 @@ class ItemListViewModel: NSObject {
         }
     }
     
-    func childNotesForIndexPath(indexPath: NSIndexPath) -> [RLMObject] {
-        var childNotes = [RLMObject]()
+    func itemForIndexPath(indexPath:NSIndexPath) -> Item {
         if let item = self.items[indexPath.row] as? Item {
-            for note in item.notes {
-                childNotes.append(note)
-            }
+            return item
         }
-        return childNotes
+        else {
+            return Item() //should not happen
+        }
     }
+    
+//    func childNotesForIndexPath(indexPath: NSIndexPath) -> [RLMObject] {
+//        var childNotes = [RLMObject]()
+//        if let item = self.items[indexPath.row] as? Item {
+//            for note in item.notes {
+//                childNotes.append(note)
+//            }
+//        }
+//        return childNotes
+//    }
     
     func addNewItemWithContent(content: String) {
         let item = Item()

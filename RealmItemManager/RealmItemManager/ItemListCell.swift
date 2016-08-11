@@ -16,7 +16,8 @@ class ItemListCell: UITableViewCell {
     @IBOutlet var miniTable: UITableView!
     @IBOutlet var miniTableHeightConstraint: NSLayoutConstraint!
     
-    //var notesData: [Note]?
+//    var notesData: [Note]?
+    var parentItem: Item?
     var notesDataSource: NotesDataSource?
     var notesViewModel: NotesViewModel?
 
