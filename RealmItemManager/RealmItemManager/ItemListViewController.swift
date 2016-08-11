@@ -13,12 +13,15 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     var mainDataSource: ItemListDataSource?
     var mainDelegate: ItemListDelegate?
     var mainViewModel: ItemListViewModel?
+    var mainFieldDelegate: ItemFieldDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.mainViewModel = ItemListViewModel()
         self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
+        self.mainFieldDelegate = ItemFieldDelegate(tableView: self.mainTableView, viewModel: self.mainViewModel!)
+        
         self.mainTableView.tableFooterView = UIView(frame: CGRectZero)
         self.mainTableView.estimatedRowHeight = 44
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
@@ -33,30 +36,8 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         cell.contentLabel.hidden = true
         cell.contentTextField.hidden = false
         cell.contentTextField.becomeFirstResponder()
-        cell.contentTextField.delegate = self
+        cell.contentTextField.delegate = self.mainFieldDelegate
         cell.contentTextField.text = ""
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath) as! ItemListCell
-        
-        if cell.contentTextField.text != "" {
-            cell.contentLabel.text = cell.contentTextField.text
-            cell.contentLabel.hidden = false
-            cell.contentTextField.hidden = true
-            self.mainViewModel?.addNewItemWithContent(cell.contentLabel.text!)
-            self.mainViewModel?.refreshItems()
-        }
-        else {
-            self.mainViewModel?.refreshItems()
-            self.mainTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
-        }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     @IBAction func deleteItemButtonTapped(sender: AnyObject) {
