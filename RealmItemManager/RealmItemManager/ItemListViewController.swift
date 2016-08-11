@@ -53,6 +53,10 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
+    
     @IBAction func addNoteButtonTapped(sender: AnyObject) {
 //        let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
 //        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
