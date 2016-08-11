@@ -11,7 +11,6 @@ import UIKit
 class ItemListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var mainTableView: UITableView!
     var mainDataSource: ItemListDataSource?
-    var mainDelegate: ItemListDelegate?
     var mainViewModel: ItemListViewModel?
     var mainFieldDelegate: ItemFieldDelegate?
 
