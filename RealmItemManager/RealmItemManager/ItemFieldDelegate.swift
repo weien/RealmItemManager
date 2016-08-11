@@ -36,6 +36,7 @@ extension ItemFieldDelegate: UITextFieldDelegate {
             self.viewModel.refreshItems()
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
         }
+        self.tableView.reloadData()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -11,20 +11,25 @@ import UIKit
 class ItemListViewModel: NSObject {
     var items: [RLMObject]
     var storageController: StorageController
+    var parentItem: Item?
     
-    override init() {
+    init(parentItem:Item?) {
         self.storageController = StorageController()
-        let results = self.storageController.retrieveAllItems()
         self.items = [RLMObject]()
-        for object in results {
-            self.items.append(object)
-        }
-        
+        self.parentItem = parentItem
         super.init()
+        self.refreshItems()
     }
     
     func refreshItems() {
-        let results = self.storageController.retrieveAllItems()
+        var results: RLMResults
+        if let unwrappedItem = self.parentItem {
+            self.parentItem = unwrappedItem
+            results = self.storageController.retrieveAllNotesForItem(unwrappedItem)
+        }
+        else {
+            results = self.storageController.retrieveAllItems()
+        }
         self.items = [RLMObject]()
         for object in results {
             self.items.append(object)
@@ -36,46 +41,44 @@ class ItemListViewModel: NSObject {
     }
     
     func itemContentForIndexPath(indexPath: NSIndexPath) -> String {
-        if let item = self.items[indexPath.row] as? Item {
-            return item.content
-        }
-        else {
-            return NSLocalizedString("No content available.", comment: "noContent")
-        }
+        let item = self.items[indexPath.row]
+        return item.valueForKeyPath("content") as! String
     }
     
     func itemForIndexPath(indexPath:NSIndexPath) -> Item {
-        if let item = self.items[indexPath.row] as? Item {
-            return item
-        }
-        else {
-            return Item() //should not happen
-        }
+        let item = self.items[indexPath.row] as? Item
+        return item!
     }
     
-//    func childNotesForIndexPath(indexPath: NSIndexPath) -> [RLMObject] {
-//        var childNotes = [RLMObject]()
-//        if let item = self.items[indexPath.row] as? Item {
-//            for note in item.notes {
-//                childNotes.append(note)
-//            }
-//        }
-//        return childNotes
-//    }
-    
     func addNewItemWithContent(content: String) {
-        let item = Item()
-        item.content = content
-        self.storageController.addObjectToRealm(item)
+        if (parentItem == nil) {
+            let item = Item()
+            item.content = content
+            self.storageController.addObjectToRealm(item)
+        }
+        else {
+            let item = Note()
+            item.content = content
+            item.item = parentItem
+            self.storageController.addObjectToRealm(item)
+        }
     }
     
     func addPlaceholderItem() {
-        let item = Item()
-        item.content = ""
-        self.items.insert(item, atIndex: 0)
+        if (parentItem == nil) {
+            let item = Item()
+            item.content = ""
+            self.items.insert(item, atIndex: 0)
+        }
+        else {
+            let item = Note()
+            item.content = ""
+            self.items.insert(item, atIndex: 0)
+        }
+    
     }
     
-    func deleteItem(item: Item) {
+    func deleteItem(item: RLMObject) {
         self.storageController.deleteObjectFromRealm(item)
     }
 }

@@ -13,11 +13,28 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     var mainDataSource: ItemListDataSource?
     var mainViewModel: ItemListViewModel?
     var mainFieldDelegate: ItemFieldDelegate?
+    
+    var isNotesVC: Bool?
+    var itemLabel: UILabel!
+    var parentItem: Item?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.mainViewModel = ItemListViewModel()
+        if (isNotesVC == true) {
+            self.title = NSLocalizedString("Notes", comment: "notesHeader")
+            let sharedFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 28)
+            self.mainTableView.tableHeaderView = UIView(frame: sharedFrame)
+            self.itemLabel = UILabel(frame: sharedFrame)
+            self.itemLabel.text = self.parentItem!.content
+            self.itemLabel.textAlignment = NSTextAlignment.Center
+            self.mainTableView.tableHeaderView!.addSubview(self.itemLabel)
+        }
+        else {
+            self.title = NSLocalizedString("Tasks", comment: "tasksHeader")
+        }
+        
+        self.mainViewModel = ItemListViewModel(parentItem:parentItem)
         self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
         self.mainFieldDelegate = ItemFieldDelegate(tableView: self.mainTableView, viewModel: self.mainViewModel!)
         
@@ -54,12 +71,15 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let buttonPosition = sender!.convertPoint(CGPointZero, toView:self.mainTableView)
+        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
         
+        let targetVC = segue.destinationViewController as! ItemListViewController
+        targetVC.isNotesVC = true
+        targetVC.parentItem = self.mainViewModel?.itemForIndexPath(indexPath!)
     }
     
     @IBAction func addNoteButtonTapped(sender: AnyObject) {
-//        let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
-//        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
-//        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
+        self.performSegueWithIdentifier("ItemToNotes", sender: sender)
     }
 }

@@ -34,7 +34,7 @@
                                                         <constraint firstAttribute="height" constant="43" id="Sqk-Sb-ULc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text Field" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iwa-dz-KBc">
@@ -65,23 +65,25 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addNoteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gQY-8Y-Q8G"/>
-                                                        <segue destination="00g-PL-eMd" kind="show" identifier="ItemsToNotes" id="6U9-z6-H3o"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="width" secondItem="GnE-7D-2HR" secondAttribute="width" id="0Y1-OQ-gYi"/>
                                                 <constraint firstItem="GnE-7D-2HR" firstAttribute="centerY" secondItem="rKe-91-TYG" secondAttribute="centerY" id="7tR-uW-gQX"/>
+                                                <constraint firstAttribute="trailing" secondItem="933-xy-kB3" secondAttribute="trailing" constant="8" id="9rx-hV-VwT"/>
                                                 <constraint firstAttribute="trailing" secondItem="933-xy-kB3" secondAttribute="trailing" constant="8" id="ATE-pe-l7y"/>
                                                 <constraint firstItem="GnE-7D-2HR" firstAttribute="leading" secondItem="3fk-9t-xPf" secondAttribute="trailing" constant="8" id="Dwp-SM-YtR"/>
                                                 <constraint firstItem="Iwa-dz-KBc" firstAttribute="leading" secondItem="3fk-9t-xPf" secondAttribute="leading" id="GQs-eZ-peK"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="centerY" secondItem="rKe-91-TYG" secondAttribute="centerY" id="LC6-U6-bq7"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="leading" secondItem="GnE-7D-2HR" secondAttribute="trailing" constant="8" id="ONX-Dp-1mD"/>
                                                 <constraint firstItem="Iwa-dz-KBc" firstAttribute="top" secondItem="3fk-9t-xPf" secondAttribute="top" id="QmL-33-r60"/>
+                                                <constraint firstItem="933-xy-kB3" firstAttribute="top" secondItem="rKe-91-TYG" secondAttribute="top" constant="11" id="QyI-5C-xUY"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="height" secondItem="GnE-7D-2HR" secondAttribute="height" id="ULF-px-nVW"/>
                                                 <constraint firstItem="Iwa-dz-KBc" firstAttribute="trailing" secondItem="3fk-9t-xPf" secondAttribute="trailing" id="Uqf-fR-5Cl"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="top" secondItem="rKe-91-TYG" secondAttribute="top" constant="11" id="XnG-Ka-A3S"/>
                                                 <constraint firstItem="3fk-9t-xPf" firstAttribute="top" secondItem="rKe-91-TYG" secondAttribute="top" id="azM-vc-3Em"/>
+                                                <constraint firstItem="933-xy-kB3" firstAttribute="leading" secondItem="GnE-7D-2HR" secondAttribute="trailing" constant="8" id="edv-dF-h3P"/>
                                                 <constraint firstItem="3fk-9t-xPf" firstAttribute="leading" secondItem="rKe-91-TYG" secondAttribute="leading" constant="16" id="oQg-sh-46z"/>
                                                 <constraint firstItem="Iwa-dz-KBc" firstAttribute="bottom" secondItem="3fk-9t-xPf" secondAttribute="bottom" id="ofn-cl-aMh"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="top" secondItem="GnE-7D-2HR" secondAttribute="top" id="wAv-Kf-D9p"/>
@@ -91,7 +93,10 @@
                                                 <mask key="constraints">
                                                     <exclude reference="xys-8f-tpf"/>
                                                     <exclude reference="7tR-uW-gQX"/>
+                                                    <exclude reference="9rx-hV-VwT"/>
                                                     <exclude reference="LC6-U6-bq7"/>
+                                                    <exclude reference="QyI-5C-xUY"/>
+                                                    <exclude reference="edv-dF-h3P"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -115,7 +120,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addItemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ks2-2B-owf"/>
+                                    <action selector="addItemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kbj-O8-Qbl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -138,16 +143,17 @@
                     <navigationItem key="navigationItem" id="UgL-ED-yz6"/>
                     <connections>
                         <outlet property="mainTableView" destination="7Vg-TE-wMT" id="PUh-IU-9zQ"/>
+                        <segue destination="00g-PL-eMd" kind="show" identifier="ItemToNotes" id="HRo-sL-bwp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="460"/>
+            <point key="canvasLocation" x="1187" y="460"/>
         </scene>
-        <!--View Controller-->
+        <!--Item List View Controller-->
         <scene sceneID="cCQ-ae-Hzy">
             <objects>
-                <viewController id="00g-PL-eMd" sceneMemberID="viewController">
+                <viewController id="00g-PL-eMd" customClass="ItemListViewController" customModule="RealmItemManager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VSS-D5-JJl"/>
                         <viewControllerLayoutGuide type="bottom" id="Xrp-vg-Vvw"/>
@@ -160,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" id="nCO-gK-A0K" customClass="ItemListCell" customModule="RealmItemManager" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" id="nCO-gK-A0K" customClass="ItemListCell" customModule="RealmItemManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nCO-gK-A0K" id="dFr-xR-eX8">
@@ -173,7 +179,7 @@
                                                         <constraint firstAttribute="height" constant="43" id="MLJ-wV-wT5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text Field" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-U7-j6V">
@@ -181,45 +187,46 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-0Z-o9a">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-Mp-IpC">
                                                     <rect key="frame" x="570" y="11" width="22" height="22"/>
                                                     <color key="backgroundColor" red="0.93790686130000001" green="0.25637996200000002" blue="0.33288240429999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="22" id="F6c-av-C95"/>
-                                                        <constraint firstAttribute="height" constant="22" id="QyR-Hx-QWb"/>
+                                                        <constraint firstAttribute="width" constant="22" id="1Cb-iT-30o"/>
+                                                        <constraint firstAttribute="height" constant="22" id="F9h-Lm-MkS"/>
                                                     </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="-">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="deleteItemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cz0-Pb-P1S"/>
+                                                        <action selector="deleteItemButtonTapped:" destination="00g-PL-eMd" eventType="touchUpInside" id="T6P-HD-NF6"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wXf-0Z-o9a" firstAttribute="centerY" secondItem="dFr-xR-eX8" secondAttribute="centerY" id="0ct-e7-3hj"/>
+                                                <constraint firstAttribute="trailing" secondItem="C7m-Mp-IpC" secondAttribute="trailing" constant="8" id="13e-LC-Lqi"/>
                                                 <constraint firstItem="Lvw-dr-kDB" firstAttribute="leading" secondItem="dFr-xR-eX8" secondAttribute="leading" constant="16" id="BSG-Am-EJy"/>
                                                 <constraint firstAttribute="bottom" secondItem="Lvw-dr-kDB" secondAttribute="bottom" id="Sfi-j6-Njr"/>
-                                                <constraint firstItem="wXf-0Z-o9a" firstAttribute="top" secondItem="dFr-xR-eX8" secondAttribute="top" constant="11" id="WwA-wD-mZP"/>
                                                 <constraint firstItem="EyG-U7-j6V" firstAttribute="bottom" secondItem="Lvw-dr-kDB" secondAttribute="bottom" id="ZRr-KZ-C1I"/>
-                                                <constraint firstItem="wXf-0Z-o9a" firstAttribute="leading" secondItem="Lvw-dr-kDB" secondAttribute="trailing" constant="8" id="fML-kk-xoJ"/>
+                                                <constraint firstItem="C7m-Mp-IpC" firstAttribute="top" secondItem="dFr-xR-eX8" secondAttribute="top" constant="11" id="aI5-fz-bI6"/>
+                                                <constraint firstItem="C7m-Mp-IpC" firstAttribute="leading" secondItem="Lvw-dr-kDB" secondAttribute="trailing" constant="8" id="gvQ-Tl-UIE"/>
                                                 <constraint firstItem="EyG-U7-j6V" firstAttribute="leading" secondItem="Lvw-dr-kDB" secondAttribute="leading" id="ii0-ka-Jeg"/>
                                                 <constraint firstItem="EyG-U7-j6V" firstAttribute="trailing" secondItem="Lvw-dr-kDB" secondAttribute="trailing" id="jRR-iz-Uuh"/>
                                                 <constraint firstItem="Lvw-dr-kDB" firstAttribute="top" secondItem="dFr-xR-eX8" secondAttribute="top" id="smc-Iv-Snl"/>
                                                 <constraint firstItem="EyG-U7-j6V" firstAttribute="top" secondItem="Lvw-dr-kDB" secondAttribute="top" id="wHE-jf-7EH"/>
-                                                <constraint firstAttribute="trailing" secondItem="wXf-0Z-o9a" secondAttribute="trailing" constant="8" id="xZE-Es-rif"/>
+                                                <constraint firstItem="C7m-Mp-IpC" firstAttribute="leading" secondItem="dFr-xR-eX8" secondAttribute="leading" constant="8" id="xKw-6b-dfH"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="Sfi-j6-Njr"/>
-                                                    <exclude reference="0ct-e7-3hj"/>
+                                                    <exclude reference="xKw-6b-dfH"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contentLabel" destination="Lvw-dr-kDB" id="7G3-z3-7s9"/>
                                             <outlet property="contentTextField" destination="EyG-U7-j6V" id="exe-PH-gK6"/>
-                                            <outlet property="deleteItemButton" destination="wXf-0Z-o9a" id="LDL-Y7-XlG"/>
+                                            <outlet property="deleteItemButton" destination="C7m-Mp-IpC" id="hPj-VP-oTk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -243,7 +250,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="addItemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kYN-cJ-M8w"/>
+                                    <action selector="addItemButtonTapped:" destination="00g-PL-eMd" eventType="touchUpInside" id="YoV-Z0-SBG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,8 +258,31 @@
                         <constraints>
                             <constraint firstItem="Xrp-vg-Vvw" firstAttribute="top" secondItem="6II-OL-4Xs" secondAttribute="bottom" constant="8" id="68B-q2-CbZ"/>
                             <constraint firstAttribute="trailing" secondItem="6II-OL-4Xs" secondAttribute="trailing" constant="8" id="Ubn-JL-FH7"/>
+                            <constraint firstAttribute="trailing" secondItem="sqk-bR-LBb" secondAttribute="trailing" id="c8a-qu-eS3"/>
+                            <constraint firstItem="sqk-bR-LBb" firstAttribute="leading" secondItem="AlU-ks-HLo" secondAttribute="leading" id="cs4-DN-768"/>
+                            <constraint firstItem="sqk-bR-LBb" firstAttribute="top" secondItem="AlU-ks-HLo" secondAttribute="top" id="dTJ-5F-NGk"/>
+                            <constraint firstItem="Xrp-vg-Vvw" firstAttribute="top" secondItem="sqk-bR-LBb" secondAttribute="bottom" id="r4g-oz-nSQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="c8a-qu-eS3"/>
+                                <exclude reference="cs4-DN-768"/>
+                                <exclude reference="dTJ-5F-NGk"/>
+                                <exclude reference="r4g-oz-nSQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="c8a-qu-eS3"/>
+                                <include reference="cs4-DN-768"/>
+                                <include reference="dTJ-5F-NGk"/>
+                                <include reference="r4g-oz-nSQ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="sqk-bR-LBb" id="jSw-VC-C4L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhC-7y-5qc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
