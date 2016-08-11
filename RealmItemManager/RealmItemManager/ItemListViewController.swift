@@ -93,6 +93,12 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addNoteButtonTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("ItemToNotes", sender: sender)
+        let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
+        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
+        
+        if (cell.contentTextField.text != "") {
+            self.performSegueWithIdentifier("ItemToNotes", sender: sender)
+        }
     }
 }
