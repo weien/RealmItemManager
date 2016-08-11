@@ -41,7 +41,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="933-xy-kB3">
                                                     <rect key="frame" x="570" y="11" width="22" height="22"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.93790686130523682" green="0.25637996196746826" blue="0.33288240432739258" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="EgX-sg-BUz"/>
                                                         <constraint firstAttribute="height" constant="22" id="yzf-ff-YNT"/>
@@ -52,9 +52,9 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-7D-2HR">
                                                     <rect key="frame" x="540" y="11" width="22" height="22"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.21043021976947784" green="0.33100444078445435" blue="0.48639506101608276" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" title="+">
+                                                    <state key="normal" title="...">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
@@ -87,7 +87,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGZ-Hp-9Zc">
                                 <rect key="frame" x="548" y="548" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.84313726430000002" green="0.32156863810000003" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.51182126998901367" green="0.045266479253768921" blue="0.11350814998149872" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="Ofg-ew-Egh"/>
                                     <constraint firstAttribute="height" constant="44" id="gIj-Pe-kbM"/>
