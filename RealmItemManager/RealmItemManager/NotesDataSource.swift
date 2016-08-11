@@ -26,7 +26,7 @@ extension NotesDataSource: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NoteListCell
-        cell.contentLabel!.text = self.viewModel.noteContentForIndexpath(indexPath)
+        cell.contentLabel!.text = self.viewModel.noteContentForIndexPath(indexPath)
         return cell
     }
 }

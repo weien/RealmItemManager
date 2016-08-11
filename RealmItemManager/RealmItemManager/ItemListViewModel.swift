@@ -35,7 +35,7 @@ class ItemListViewModel: NSObject {
         return Int(self.items.count)
     }
     
-    func itemContentForIndexpath(indexPath: NSIndexPath) -> String {
+    func itemContentForIndexPath(indexPath: NSIndexPath) -> String {
         if let item = self.items[indexPath.row] as? Item {
             return item.content
         }

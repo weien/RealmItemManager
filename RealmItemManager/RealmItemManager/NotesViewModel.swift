@@ -26,7 +26,7 @@ class NotesViewModel: NSObject {
         return Int(self.notes.count)
     }
     
-    func noteContentForIndexpath(indexPath: NSIndexPath) -> String {
+    func noteContentForIndexPath(indexPath: NSIndexPath) -> String {
         return self.notes[indexPath.row].content
     }
     
