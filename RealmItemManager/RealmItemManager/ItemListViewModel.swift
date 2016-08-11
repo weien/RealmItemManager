@@ -50,17 +50,19 @@ class ItemListViewModel: NSObject {
         return item!
     }
     
-    func addNewItemWithContent(content: String) {
+    func addNewItemWithContent(content: String) -> Item? {
         if (parentItem == nil) {
             let item = Item()
             item.content = content
             self.storageController.addObjectToRealm(item)
+            return item
         }
         else {
             let item = Note()
             item.content = content
             item.item = parentItem
             self.storageController.addObjectToRealm(item)
+            return nil
         }
     }
     

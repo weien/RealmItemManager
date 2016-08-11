@@ -40,6 +40,11 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         
         self.mainTableView.tableFooterView = UIView(frame: CGRectZero)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mainTableView.reloadData()
+    }
 
     @IBAction func addItemButtonTapped(sender: AnyObject) {
         self.mainViewModel?.addPlaceholderItem()
@@ -63,7 +68,7 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
             cell.contentTextField.resignFirstResponder()
         }
         else if indexPath != nil {
-            let itemToDelete = self.mainViewModel!.items[indexPath!.row] as! Item
+            let itemToDelete = self.mainViewModel!.items[indexPath!.row]
             self.mainViewModel?.deleteItem(itemToDelete)
             self.mainViewModel?.refreshItems()
             self.mainTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Right)
@@ -73,10 +78,18 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let buttonPosition = sender!.convertPoint(CGPointZero, toView:self.mainTableView)
         let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
         
         let targetVC = segue.destinationViewController as! ItemListViewController
         targetVC.isNotesVC = true
-        targetVC.parentItem = self.mainViewModel?.itemForIndexPath(indexPath!)
+        
+        if cell.contentTextField.isFirstResponder() && cell.contentTextField.text != "" {
+            targetVC.parentItem = self.mainViewModel?.addNewItemWithContent(cell.contentTextField.text!)
+            self.mainFieldDelegate?.shouldSkipExtraSave = true
+        }
+        else {
+            targetVC.parentItem = self.mainViewModel?.itemForIndexPath(indexPath!)
+        }
     }
     
     @IBAction func addNoteButtonTapped(sender: AnyObject) {
