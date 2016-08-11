@@ -40,7 +40,7 @@
 
 - (RLMResults*) retrieveAllNotesForItem:(Item*)item {
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"item == %@", item];
-    return [Item objectsInRealm:[self defaultRealmForCurrentThread] withPredicate:predicate];
+    return [Note objectsInRealm:[self defaultRealmForCurrentThread] withPredicate:predicate];
 }
 
 @end

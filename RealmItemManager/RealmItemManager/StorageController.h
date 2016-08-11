@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Realm/Realm.h>
 #import "Item.h"
+#import "Note.h"
 
 @interface StorageController : NSObject
 - (void) addObjectToRealm:(RLMObject*)object;
