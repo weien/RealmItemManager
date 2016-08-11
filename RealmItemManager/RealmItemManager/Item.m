@@ -17,8 +17,8 @@
              };
 }
 
-+ (NSArray *)requiredProperties {
-    return @[@"content"];
-}
+//+ (NSArray *)requiredProperties {
+//    return @[@"content"];
+//}
 
 @end

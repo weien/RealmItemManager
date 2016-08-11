@@ -9,14 +9,26 @@
 import UIKit
 
 class ItemListViewModel: NSObject {
-    var items: RLMResults
+    var items: [RLMObject]
     var storageController: StorageController
     
     override init() {
         self.storageController = StorageController()
-        self.items = self.storageController.retrieveAllItems()
+        let results = self.storageController.retrieveAllItems()
+        self.items = [RLMObject]()
+        for object in results {
+            self.items.append(object)
+        }
         
         super.init()
+    }
+    
+    func refreshItems() {
+        let results = self.storageController.retrieveAllItems() //we might be able to store results, intead of re-retrieving here
+        self.items = [RLMObject]()
+        for object in results {
+            self.items.append(object)
+        }
     }
     
     func numberOfItemsInSection(section: Int) -> Int {
@@ -24,11 +36,23 @@ class ItemListViewModel: NSObject {
     }
     
     func itemContentForIndexpath(indexPath: NSIndexPath) -> String {
-        if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
+        if let item = self.items[indexPath.row] as? Item {
             return item.content
         }
         else {
             return NSLocalizedString("No content available.", comment: "noContent")
         }
+    }
+    
+    func addNewItemWithContent(content: String) {
+        let item = Item()
+        item.content = content
+        self.storageController.addObjectToRealm(item)
+    }
+    
+    func addPlaceholderItem() {
+        let item = Item()
+        item.content = ""
+        self.items.insert(item, atIndex: 0)
     }
 }

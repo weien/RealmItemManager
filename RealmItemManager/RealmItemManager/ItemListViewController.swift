@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemListViewController: UIViewController {
+class ItemListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var mainTableView: UITableView!
     var mainDataSource: ItemListDataSource?
     var mainDelegate: ItemListDelegate?
@@ -28,20 +28,30 @@ class ItemListViewController: UIViewController {
         //self.mainTableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func addItemButtonTapped(sender: AnyObject) {
+        self.mainViewModel?.addPlaceholderItem()
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.mainTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath) as! ItemListCell
+        cell.contentLabel.hidden = true
+        cell.contentTextField.hidden = false
+        cell.contentTextField.becomeFirstResponder()
+        cell.contentTextField.delegate = self
+        cell.contentTextField.text = ""
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textFieldDidEndEditing(textField: UITextField) {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath) as! ItemListCell
+        cell.contentLabel.text = cell.contentTextField.text
+        cell.contentLabel.hidden = false
+        cell.contentTextField.hidden = true
+        self.mainViewModel?.addNewItemWithContent(cell.contentLabel.text!)
     }
-    */
-
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
