@@ -60,11 +60,7 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
         let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
         let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
-        
-        cell.miniTableHeightConstraint.constant = 22
-        self.mainTableView.beginUpdates()
-        self.mainTableView.endUpdates()
-        
+            
         cell.addNote()
     }
 }

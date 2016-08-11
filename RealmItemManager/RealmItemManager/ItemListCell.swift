@@ -16,10 +16,10 @@ class ItemListCell: UITableViewCell {
     @IBOutlet var miniTable: UITableView!
     @IBOutlet var miniTableHeightConstraint: NSLayoutConstraint!
     
-    //var parentItem: Item?
     var notesDataSource: NotesDataSource?
     var notesViewModel: NotesViewModel?
     var noteFieldDelegate: NoteFieldDelegate?
+    weak var parentTable: UITableView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,14 +29,23 @@ class ItemListCell: UITableViewCell {
         self.miniTable.tableFooterView = UIView(frame: CGRectZero)
     }
     
-    func setupCellWithItem(parentItem:Item) {
+    func setupCellWithItem(parentItem:Item, parentTable:UITableView) {
         self.notesViewModel = NotesViewModel(item: parentItem)
         self.notesDataSource = NotesDataSource(tableView: self.miniTable, viewModel: self.notesViewModel!)
         self.noteFieldDelegate = NoteFieldDelegate(tableView: self.miniTable, viewModel: self.notesViewModel!)
+        self.parentTable = parentTable
+    }
+    
+    func adjustLayoutForNumberOfNotes(numberOfNotes:Int) {
+        self.miniTableHeightConstraint.constant = CGFloat(min(numberOfNotes*22, 88))
+        self.parentTable!.beginUpdates()
+        self.parentTable!.endUpdates()
     }
     
     func addNote() {
         self.notesViewModel?.addPlaceholderNote()
+        let numberOfNotes = self.notesViewModel?.numberOfNotesInSection(0)
+        self.adjustLayoutForNumberOfNotes(numberOfNotes!)
         
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.miniTable.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)

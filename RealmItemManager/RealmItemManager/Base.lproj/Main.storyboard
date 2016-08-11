@@ -68,27 +68,27 @@
                                                     </connections>
                                                 </button>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="22" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UNI-Db-24H">
-                                                    <rect key="frame" x="16" y="47" width="568" height="152"/>
+                                                    <rect key="frame" x="16" y="47" width="584" height="152"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="750" constant="152" id="chs-is-Wsr"/>
                                                     </constraints>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="BGv-Fv-Udz" customClass="NoteListCell" customModule="RealmItemManager" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="568" height="22"/>
+                                                            <rect key="frame" x="0.0" y="28" width="584" height="22"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BGv-Fv-Udz" id="HNq-Lo-2lH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="568" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="584" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-IY-2hX">
-                                                                        <rect key="frame" x="8" y="0.0" width="520" height="21"/>
+                                                                        <rect key="frame" x="16" y="0.0" width="536" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odb-ap-R45">
-                                                                        <rect key="frame" x="536" y="4" width="16" height="16"/>
+                                                                        <rect key="frame" x="560" y="1" width="16" height="16"/>
                                                                         <color key="backgroundColor" red="0.93790686130000001" green="0.25637996200000002" blue="0.33288240429999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="16" id="DG2-Nn-UJ6"/>
@@ -99,7 +99,7 @@
                                                                         </state>
                                                                     </button>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text Field" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRT-Jz-ljT">
-                                                                        <rect key="frame" x="8" y="0.0" width="520" height="21"/>
+                                                                        <rect key="frame" x="16" y="0.0" width="536" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                     </textField>
@@ -107,12 +107,12 @@
                                                                 <constraints>
                                                                     <constraint firstItem="fRT-Jz-ljT" firstAttribute="leading" secondItem="uu7-IY-2hX" secondAttribute="leading" id="AAC-OC-wzh"/>
                                                                     <constraint firstItem="fRT-Jz-ljT" firstAttribute="trailing" secondItem="uu7-IY-2hX" secondAttribute="trailing" id="AMv-Ce-sCN"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="odb-ap-R45" secondAttribute="trailing" constant="16" id="Evj-So-BOF"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="odb-ap-R45" secondAttribute="trailing" constant="8" id="Evj-So-BOF"/>
                                                                     <constraint firstItem="odb-ap-R45" firstAttribute="leading" secondItem="uu7-IY-2hX" secondAttribute="trailing" constant="8" id="MiB-Y6-1Gv"/>
                                                                     <constraint firstItem="uu7-IY-2hX" firstAttribute="top" secondItem="HNq-Lo-2lH" secondAttribute="top" id="OZd-9G-93H"/>
                                                                     <constraint firstAttribute="bottom" secondItem="fRT-Jz-ljT" secondAttribute="bottom" id="ilS-Cb-d7A"/>
-                                                                    <constraint firstItem="odb-ap-R45" firstAttribute="top" secondItem="HNq-Lo-2lH" secondAttribute="top" constant="4" id="jCu-oS-Hh8"/>
-                                                                    <constraint firstItem="uu7-IY-2hX" firstAttribute="leading" secondItem="HNq-Lo-2lH" secondAttribute="leading" constant="8" id="pQA-e3-mSy"/>
+                                                                    <constraint firstItem="odb-ap-R45" firstAttribute="top" secondItem="HNq-Lo-2lH" secondAttribute="top" constant="1" id="jCu-oS-Hh8"/>
+                                                                    <constraint firstItem="uu7-IY-2hX" firstAttribute="leading" secondItem="HNq-Lo-2lH" secondAttribute="leading" constant="16" id="pQA-e3-mSy"/>
                                                                     <constraint firstItem="fRT-Jz-ljT" firstAttribute="bottom" secondItem="uu7-IY-2hX" secondAttribute="bottom" id="uct-ml-Ush"/>
                                                                     <constraint firstItem="fRT-Jz-ljT" firstAttribute="top" secondItem="uu7-IY-2hX" secondAttribute="top" id="vtt-X9-dUV"/>
                                                                 </constraints>
@@ -132,7 +132,7 @@
                                                 <constraint firstItem="GnE-7D-2HR" firstAttribute="centerY" secondItem="rKe-91-TYG" secondAttribute="centerY" id="7tR-uW-gQX"/>
                                                 <constraint firstAttribute="trailing" secondItem="933-xy-kB3" secondAttribute="trailing" constant="8" id="ATE-pe-l7y"/>
                                                 <constraint firstItem="GnE-7D-2HR" firstAttribute="leading" secondItem="3fk-9t-xPf" secondAttribute="trailing" constant="8" id="Dwp-SM-YtR"/>
-                                                <constraint firstAttribute="trailing" secondItem="UNI-Db-24H" secondAttribute="trailing" constant="16" id="FAC-Si-pCf"/>
+                                                <constraint firstAttribute="trailing" secondItem="UNI-Db-24H" secondAttribute="trailing" id="FAC-Si-pCf"/>
                                                 <constraint firstItem="Iwa-dz-KBc" firstAttribute="leading" secondItem="3fk-9t-xPf" secondAttribute="leading" id="GQs-eZ-peK"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="centerY" secondItem="rKe-91-TYG" secondAttribute="centerY" id="LC6-U6-bq7"/>
                                                 <constraint firstItem="933-xy-kB3" firstAttribute="leading" secondItem="GnE-7D-2HR" secondAttribute="trailing" constant="8" id="ONX-Dp-1mD"/>
