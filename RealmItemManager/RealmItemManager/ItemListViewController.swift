@@ -20,6 +20,8 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         self.mainViewModel = ItemListViewModel()
         self.mainDataSource = ItemListDataSource(tableView: self.mainTableView, viewModel: self.mainViewModel!)
         self.mainTableView.tableFooterView = UIView(frame: CGRectZero)
+        self.mainTableView.estimatedRowHeight = 44
+        self.mainTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     @IBAction func addItemButtonTapped(sender: AnyObject) {
@@ -71,5 +73,15 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
             self.mainViewModel?.refreshItems()
             self.mainTableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Right)
         }
+    }
+    
+    @IBAction func addNoteButtonTapped(sender: AnyObject) {
+        let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
+        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
+        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
+        
+        cell.miniTableHeightConstraint.constant = 22
+        self.mainTableView.beginUpdates()
+        self.mainTableView.endUpdates()
     }
 }

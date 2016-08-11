@@ -13,12 +13,15 @@ class ItemListCell: UITableViewCell {
     @IBOutlet var addCommentButton: UIButton!
     @IBOutlet var deleteItemButton: UIButton!
     @IBOutlet var contentTextField: UITextField!
-    
+    @IBOutlet var miniTable: UITableView!
+    @IBOutlet var miniTableHeightConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.contentTextField.hidden = true
+        self.miniTableHeightConstraint.constant = 0
+        self.miniTable.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
