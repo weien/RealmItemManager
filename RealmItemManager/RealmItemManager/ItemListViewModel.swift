@@ -24,7 +24,7 @@ class ItemListViewModel: NSObject {
     }
     
     func refreshItems() {
-        let results = self.storageController.retrieveAllItems() //we might be able to store results, intead of re-retrieving here
+        let results = self.storageController.retrieveAllItems()
         self.items = [RLMObject]()
         for object in results {
             self.items.append(object)
