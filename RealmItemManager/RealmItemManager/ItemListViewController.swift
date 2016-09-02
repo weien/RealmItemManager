@@ -15,7 +15,6 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     var mainFieldDelegate: ItemFieldDelegate?
     
     var isNotesVC: Bool?
-//    var itemLabel: UILabel?
     var parentItem: Item?
 
     override func viewDidLoad() {
@@ -79,30 +78,32 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let buttonPosition = sender!.convertPoint(CGPointZero, toView:self.mainTableView)
-        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
-        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
-        
-        let targetVC = segue.destinationViewController as! ItemListViewController
-        targetVC.isNotesVC = true
-        
-        //user taps on add-note button while adding a parent item
-        if cell.contentTextField.isFirstResponder() && cell.contentTextField.text != "" {
-            targetVC.parentItem = self.mainViewModel?.addNewItemWithContent(cell.contentTextField.text!)
-            self.mainFieldDelegate?.shouldSkipExtraSave = true
-        }
-        else {
-            targetVC.parentItem = self.mainViewModel?.itemForIndexPath(indexPath!)
+        if let senderView = sender {
+            let buttonPosition = senderView.convertPoint(CGPointZero, toView:self.mainTableView)
+            let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
+            let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
+            
+            let targetVC = segue.destinationViewController as! ItemListViewController
+            targetVC.isNotesVC = true
+            
+            //user taps on add-note button while adding a parent item
+            if cell.contentTextField.isFirstResponder() && cell.contentTextField.text != "" {
+                targetVC.parentItem = self.mainViewModel?.addNewItemWithContent(cell.contentTextField.text!)
+                self.mainFieldDelegate?.shouldSkipExtraSave = true
+            }
+            else {
+                targetVC.parentItem = self.mainViewModel?.itemForIndexPath(indexPath!)
+            }
         }
     }
     
     @IBAction func addNoteButtonTapped(sender: AnyObject) {
         let buttonPosition = sender.convertPoint(CGPointZero, toView:self.mainTableView)
-        let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition)
-        let cell = self.mainTableView.cellForRowAtIndexPath(indexPath!) as! ItemListCell
-        
-        if (cell.contentTextField.text != "") {
-            self.performSegueWithIdentifier("ItemToNotes", sender: sender)
+        if let indexPath = self.mainTableView.indexPathForRowAtPoint(buttonPosition) {
+            let cell = self.mainTableView.cellForRowAtIndexPath(indexPath) as! ItemListCell
+            if (cell.contentTextField.text != "") {
+                self.performSegueWithIdentifier("ItemToNotes", sender: sender)
+            }
         }
     }
 }
