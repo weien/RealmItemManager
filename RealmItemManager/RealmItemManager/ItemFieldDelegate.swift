@@ -30,7 +30,7 @@ extension ItemFieldDelegate: UITextFieldDelegate {
                     self.shouldSkipExtraSave = false
                 }
                 else {
-                    self.viewModel.addNewItemWithContent(cell.contentLabel.text!)
+                    self.viewModel.addNewItemWithContent(cell.contentTextField.text!)
                 }
                 cell.contentLabel.text = cell.contentTextField.text
                 cell.contentLabel.hidden = false
