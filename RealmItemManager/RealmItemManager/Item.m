@@ -17,8 +17,4 @@
              };
 }
 
-//+ (NSArray *)requiredProperties {
-//    return @[@"content"];
-//}
-
 @end

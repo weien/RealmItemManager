@@ -13,6 +13,4 @@
 @property (readonly) RLMLinkingObjects *notes;
 @end
 
-// This protocol enables typed collections. i.e.:
-// RLMArray<Item>
 RLM_ARRAY_TYPE(Item)

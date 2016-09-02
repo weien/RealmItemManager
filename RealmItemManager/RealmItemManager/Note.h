@@ -15,6 +15,4 @@
 @property Item *item;
 @end
 
-// This protocol enables typed collections. i.e.:
-// RLMArray<Note>
 RLM_ARRAY_TYPE(Note)
