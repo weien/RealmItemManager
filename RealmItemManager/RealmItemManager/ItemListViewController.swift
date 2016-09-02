@@ -83,6 +83,7 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
         let targetVC = segue.destinationViewController as! ItemListViewController
         targetVC.isNotesVC = true
         
+        //user taps on add-note button while adding a parent item
         if cell.contentTextField.isFirstResponder() && cell.contentTextField.text != "" {
             targetVC.parentItem = self.mainViewModel?.addNewItemWithContent(cell.contentTextField.text!)
             self.mainFieldDelegate?.shouldSkipExtraSave = true
