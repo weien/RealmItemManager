@@ -15,7 +15,7 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
     var mainFieldDelegate: ItemFieldDelegate?
     
     var isNotesVC: Bool?
-    var itemLabel: UILabel!
+//    var itemLabel: UILabel?
     var parentItem: Item?
 
     override func viewDidLoad() {
@@ -25,10 +25,13 @@ class ItemListViewController: UIViewController, UITextFieldDelegate {
             self.title = NSLocalizedString("Notes", comment: "notesHeader")
             let sharedFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 28)
             self.mainTableView.tableHeaderView = UIView(frame: sharedFrame)
-            self.itemLabel = UILabel(frame: sharedFrame)
-            self.itemLabel.text = self.parentItem!.content
-            self.itemLabel.textAlignment = NSTextAlignment.Center
-            self.mainTableView.tableHeaderView!.addSubview(self.itemLabel)
+            
+            let itemLabel = UILabel(frame: sharedFrame)
+            itemLabel.textAlignment = NSTextAlignment.Center
+            self.mainTableView.tableHeaderView?.addSubview(itemLabel)
+            if let parentContent = self.parentItem?.content {
+                itemLabel.text = parentContent
+            }
         }
         else {
             self.title = NSLocalizedString("Tasks", comment: "tasksHeader")
