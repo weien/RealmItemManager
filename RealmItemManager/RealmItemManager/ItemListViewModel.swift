@@ -42,12 +42,20 @@ class ItemListViewModel: NSObject {
     
     func itemContentForIndexPath(indexPath: NSIndexPath) -> String {
         let item = self.items[indexPath.row]
-        return item.valueForKeyPath("content") as! String
+        let itemContent = item.valueForKeyPath("content")
+        if let stringContent = itemContent as? String {
+            return stringContent
+        }
+        else {
+            return ""
+        }
     }
     
-    func itemForIndexPath(indexPath:NSIndexPath) -> Item {
-        let item = self.items[indexPath.row] as? Item
-        return item!
+    func itemForIndexPath(indexPath:NSIndexPath) -> Item? {
+        guard let item = self.items[indexPath.row] as? Item else {
+            return nil
+        }
+        return item
     }
     
     func addNewItemWithContent(content: String) -> Item? {
@@ -77,7 +85,6 @@ class ItemListViewModel: NSObject {
             item.content = ""
             self.items.insert(item, atIndex: 0)
         }
-    
     }
     
     func deleteItem(item: RLMObject) {
